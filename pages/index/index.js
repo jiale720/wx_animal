@@ -5,24 +5,7 @@ Page({
     titleHeight: 0,
     tabHeight:0,
     activeType: null,
-    cartItems: [
-      {
-        code: 1,
-        name: '商品1',
-        price: 10,
-        img: '../images/pig1.jpg',
-        specification: "10支/盒",
-        count:1
-      },
-      {
-        code: 2,
-        name: '商品2',
-        price: 20,
-        image: '../images/pig1.jpg',
-        specification: "10支/盒",
-        count:1
-      }
-    ],
+    cartItems: [],
     totalPrice: 0,
     totalQuantity: 0,
     showCartPopup: false,
@@ -311,7 +294,7 @@ Page({
         specification: goods.specification,
         price: goods.price,
         count: 1,
-        img: goods.image
+        img: goods.img
       };
       cartItems.push(cartItem);
     }

@@ -98,7 +98,7 @@
       </view>
       <view class="cart-items">
         <view class="cart-item" wx:for="{{cartItems}}" wx:key="code">
-          <image src="{{item.image}}" class="cart-item-image"></image>
+          <image src="{{item.img}}" class="cart-item-image"></image>
           <view class="cart-item-details">
             <view class="cart-item-name">{{item.name}}</view>
             <view class="cart-item-spec">{{item.specification}}</view>
