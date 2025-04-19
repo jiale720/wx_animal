@@ -1,0 +1,5 @@
+<view class="number-selector">
+  <view class="minus-btn" bindtap="decreaseQuantity">{{minusIcon}}</view>
+  <view class="quantity-num">{{quantity}}</view>
+  <view class="plus-btn" bindtap="increaseQuantity">{{plusIcon}}</view>
+</view>

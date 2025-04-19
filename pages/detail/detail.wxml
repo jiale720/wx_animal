@@ -1,0 +1,75 @@
+<view class="container">
+  <!-- 顶部图片与优惠区 -->
+  <view class="top-banner">
+    <image src="https://example.com/pickle.jpg" mode="aspectFill"></image>
+    <view class="banner-text">朝鲜族风味 传统泡菜</view>
+  </view>
+  <view class="discount-info">
+    <view class="price-info">
+      <view class="discount-price">折后价 ¥0.99</view>
+      <view class="original-price">¥3 | 3.3折</view>
+    </view>
+    <view class="save-money">立省 2.01元</view>
+  </view>
+
+  <!-- 商品基础信息 -->
+  <view class="goods-basic">
+    <view class="goods-name">辣白菜（约40克）</view>
+    <view class="collect-icon">★ 收藏</view>
+    <view class="goods-attr">约40克</view>
+    <view class="recommend-tags">
+      <view class="tag">点评网友推荐</view>
+      <view class="tag">折扣力度前10%商品</view>
+    </view>
+    <view class="month-sell">月售300+</view>
+    <button class="add-cart-btn">+ 加入购物车</button>
+    <view class="delivery-note">单点不送</view>
+  </view>
+
+  <!-- 标签切换区 -->
+  <view class="tab-bar">
+    <view class="tab-item active">详情</view>
+    <view class="tab-item">评价10</view>
+    <view class="tab-item">搭配</view>
+    <view class="tab-item discount-tab">优惠</view>
+  </view>
+
+  <!-- 详情内容 -->
+  <view class="detail-content">
+    <view class="desc-item">
+      <view class="desc-label">掌柜描述：</view>
+      <view class="desc-value">源自朝鲜族传统风味，只取黄心大白菜，0防腐剂很安心</view>
+    </view>
+    <view class="price-note">
+      <view class="note-label">价格说明</view>
+      <view class="note-icon">?</view>
+    </view>
+  </view>
+
+  <!-- 评价区 -->
+  <view class="evaluation-section">
+    <view class="eval-header">
+      <view class="eval-title">外卖评价</view>
+      <view class="eval-rate">(好评度100%)</view>
+      <view class="eval-more">10条评论 ></view>
+    </view>
+    <view class="eval-filters">
+      <view class="filter-item">有图 2</view>
+      <view class="filter-item">👍 10</view>
+    </view>
+    <view class="eval-list">
+      <view class="eval-item">
+        <view class="user-avatar">
+          <image src="https://example.com/avatar.jpg" mode="aspectFill"></image>
+        </view>
+        <view class="user-info">
+          <view class="user-id">GMF179741096</view>
+          <view class="eval-time">2025.03.08</view>
+        </view>
+        <view class="eval-content">
+          👍 赞了该商品
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

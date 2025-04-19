@@ -1,0 +1,128 @@
+<view class="page-container">
+  <!-- 遮罩层（灰色蒙层） -->
+  <view class="mask" wx:if="{{showMask}}" bindtap="closeMask" catchtouchmove="preventTouchMove"></view>
+  
+  <!-- 店铺信息 -->
+  <view class="store-info">
+    <view class="store-banner">
+      <text class="store-name">尚斌兽医门诊部</text>
+    </view>
+    <view class="store-rating">
+      <text class="rating">尚斌兽医门诊部新店开业，全场八折，17点前下单，当天配送到家，49起送，限20斤内物品。</text>
+      <text class="month-sell"></text>
+      <text class="delivery-time"></text>
+    </view>
+    <view class="store-end"></view>
+  </view>
+
+  <view class="sticky-element">
+    <!-- 分类标签 -->
+    <view class="tab-bar">
+      <view class="tab-item {{currentTab === 0? 'active' : ''}}" bindtap="switchTab" data-index="0">
+        商品
+      </view>
+      <view class="tab-item {{currentTab === 1? 'active' : ''}}" bindtap="switchTab" data-index="1">
+        商家
+      </view>
+    </view>
+    <!-- 顶部导航 -->
+    <!-- <view class="top-nav">
+        <view class="search-box">
+          <input type="text" placeholder="请输入商品名" class="search-input" value="{{activeType}}"/>
+        </view>
+      </view> -->
+  </view>
+
+  <swiper current="{{currentTab}}" bindchange="onSwiperChange" duration="300" class="main-content">
+    <swiper-item>
+      <!-- 主体内容 -->
+      <view class="tab-main-item">
+        <!-- 左侧分类 -->
+        <view class="left-category">
+          <view wx:for="{{typeList}}" wx:key="value" bindtap="onTypeClick" data-type="{{item.value}}">
+            <view class="category-item  {{item.value === activeType? 'selected' : ''}}">
+              {{item.name}}
+            </view>
+          </view>
+        </view>
+
+        <!-- 右侧菜品 -->
+        <!-- <view class="right-dish" bindscroll="onRightViewScroll"> -->
+        <scroll-view class="right-dish" scroll-y="{{true}}" scroll-top="{{scrollTop}}" bindscroll="onRightViewScroll">
+          <view class="dish-list">
+            <view wx:for="{{typeList}}" wx:for-item="typeItem" wx:key="value" class="{{typeItem.value}}">
+              <view class="type-title type-{{typeItem.value}}">{{typeItem.name}}</view>
+              <view wx:for="{{dishList}}" wx:for-item="item" wx:key="code" bind:tap="goToDetailPage">
+                <view class="dish-item" wx:if="{{typeItem.value === item.type}}">
+                  <view class="dish-img">
+                    <image src="{{item.img}}" mode="aspectFill"></image>
+                    <view class="tag {{item.isSign ? 'show-tag' : ''}}">招牌</view>
+                  </view>
+                  <view class="dish-info">
+                    <view class="dish-name">{{item.name}}</view>
+                    <view class="dish-desc"></view>
+                    <view class="dish-sell">规格：{{item.specification}}</view>
+                    <view class="parent-view">
+                      <view class="left-element">¥{{item.price}}</view>
+                      <number-selector initialQuantity="{{0}}" minusIcon="-" plusIcon="＋" catchtap="onParentViewTap" bind:quantityChange="onQuantityChange"
+                      data-product="{{item}}"
+                      ></number-selector>
+                    </view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!-- 空白填充区域 -->
+          <view class="blank-space" style="height: {{blankSpaceHeight}}px;"></view>
+        </scroll-view>
+      </view>
+
+    </swiper-item>
+    <swiper-item>
+      <view class="tab-main-item">
+        商家详情
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <!-- 底部操作区 -->
+  <view class="foot" wx:if="{{totalQuantity > 0}}" catchtouchmove="allowTouchMove">
+    <!-- 购物车弹框 -->
+    <view wx:if="{{showCartPopup}}" class="cart-popup">
+      <view class="cart-close" bindtap="hideCartPopup">×</view>
+      <view class="cart-header">已加购商品
+        <view class="cart-actions">
+          <button class="cart-clear" size="mini" bindtap="clearCart">清空</button>
+        </view>
+      </view>
+      <view class="cart-items">
+        <view class="cart-item" wx:for="{{cartItems}}" wx:key="code">
+          <image src="{{item.image}}" class="cart-item-image"></image>
+          <view class="cart-item-details">
+            <view class="cart-item-name">{{item.name}}</view>
+            <view class="cart-item-spec">{{item.specification}}</view>
+          </view>
+          <view class="cart-item-price">¥{{item.price}}</view>
+          <view class="quantity-control">
+            <number-selector initialQuantity="{{item.count}}" minusIcon="-" plusIcon="＋" bind:changeQuantity="changeQuantity"></number-selector>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="bottom-action">
+      <view class="bottom-left" bind:tap="showCartDetails">
+        <image src="../images/cart.png"></image>
+        <view>
+          <view class="total-price">¥41.8</view>
+          <view class="delivery-fee">预估另需配送费 ¥3.2</view>
+        </view>
+      </view>
+      <view class="bottom-right">
+        <button class="checkout-btn" size="mini">去结算</button>
+      </view>
+    </view>
+  </view>
+
+
+</view>

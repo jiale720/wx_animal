@@ -1,0 +1,320 @@
+.page-container {
+  background:white;
+  margin-top: -11px;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  height: 80rpx;
+  background: white;
+  width: 100%;
+}
+.back-icon {
+  font-size: 32rpx;
+}
+.search-box {
+  flex: 1;
+  height: 50rpx;
+  background: #f0f0f0;
+  border-radius: 25rpx;
+  padding: 0 20rpx;
+  margin: 0 20rpx;
+}
+.search-input {
+  height: 100%;
+  font-size: 28rpx;
+  background: none;
+}
+.main-content {
+  height: 1388rpx;
+}
+.store-info {
+  background: white;
+  padding: 20rpx;
+}
+.store-banner {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}
+.store-rating {
+  display: flex;
+  justify-content: space-between;
+  color: #666;
+  font-size: 28rpx;
+}
+.store-end{
+  padding-bottom: 20rpx;
+  background: #efefef;
+}
+.tab-bar {
+  display: flex;
+  background: white;
+}
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 10px;
+  font-size: 16px;
+  color: #333;
+}
+.active {
+  color: #ff9900;
+  border-bottom: 3rpx solid #ff9900;
+}
+
+.tab-main-item {
+  display: flex;
+}
+.tab-item.active {
+  color: #007aff;
+  border-bottom: 2px solid #007aff;
+}
+.tab-content {
+  padding: 20px;
+}
+.left-category {
+  position: sticky;
+  width: 200rpx;
+  background: #efefef;
+  /* top: 20rpx; */
+  z-index: 10;
+  height: 1385rpx;
+}
+.category-item {
+  padding: 20rpx;
+  font-size: 32rpx;
+  color: #666;
+  overflow-y: auto;
+}
+
+.right-dish {
+  flex: 1;
+  padding: 0rpx 5rpx;
+  overflow-y: auto;
+  height: 1385rpx;
+  padding-top: 10rpx;
+}
+
+.dish-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  overflow-y: scrol;
+}
+.dish-item {
+  display: flex;
+  background: white;
+  padding: 20rpx;
+  border-radius: 10rpx;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dish-img {
+  width: 220rpx;
+  height: 200rpx;
+  position: relative;
+}
+.dish-img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8rpx;
+}
+.tag {
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  background: #ffd700;
+  color: white;
+  padding: 5rpx 10rpx;
+  border-radius: 3rpx;
+  display: none;
+}
+.show-tag {
+  display: block;
+}
+.dish-info {
+  flex: 1;
+  margin: 0 5rpx;
+}
+.dish-name {
+  font-size: 34rpx;
+  margin-bottom: 10rpx;
+}
+.dish-sell {
+  color: #666;
+  margin-bottom: 10rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.dish-desc {
+  color: #999;
+  font-size: 28rpx;
+}
+.dish-price {
+  color: #ff4d4f;
+  font-size: 34rpx;
+}
+.parent-view {
+  display: flex;
+  padding-top: 50rpx;
+}
+
+.left-element {
+  width: 50%; /* 左侧固定宽度 */
+  line-height: 50rpx;
+}
+
+.right-element {
+  width: 50%; /* 右侧固定宽度 */
+}
+.sticky-element {
+  position: sticky;
+  top: 0;
+  background-color: #f0f0f0;
+}
+
+.type-title {
+  padding: 10rpx 20rpx;
+  background: white;
+}
+.selected {
+  background-color: white;
+}
+.blank-space {
+  background-color: white;
+}
+
+/* 底部操作区 */
+.bottom-action {
+  border-radius:20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10rpx 15rpx;
+  box-shadow: 0 -2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+.bottom-left {
+  display: flex;
+  align-items: center;
+}
+.bottom-left image {
+  width: 105rpx;
+  height: 90rpx;
+  margin-right: 10rpx;
+}
+
+.total-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+.delivery-fee {
+  font-size: 14px;
+  color: #666;
+}
+.bottom-right {
+  display: flex;
+  align-items: center;
+}
+.checkout-btn {
+  background-color: #ffcc00;
+  color: white;
+  border: none;
+  padding: 10rpx 20rpx;
+  border-radius: 20rpx;
+  font-size: 36rpx;
+  width: 150rpx;
+  text-align: center;
+}
+.foot {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top-left-radius: 16rpx;
+  border-top-right-radius: 16rpx;
+  z-index: 100;
+}
+/* 购物车弹框样式 */
+.cart-popup {
+  background: white;
+  padding: 15rpx;
+  margin-bottom: -20rpx;
+  z-index: 100;
+}
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16rpx;
+}
+.cart-actions {
+  display: flex;
+  align-items: center;
+}
+.cart-clear {
+  color: #666;
+  margin-right: 16rpx;
+  background: white;
+}
+.cart-close {
+  text-align: right;
+  color: #666;
+}
+.cart-items {
+  margin-bottom: 16rpx;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.cart-item-image {
+  width: 140rpx;
+  height: 140rpx;
+  margin-right: 12rpx;
+}
+.cart-item-details {
+  flex: 1;
+}
+.cart-item-name {
+  font-size: 36rpx;
+  margin-bottom: 4rpx;
+}
+.cart-item-spec {
+  color: #666;
+  font-size: 32rpx;
+}
+.cart-item-price {
+  color: #f40;
+  font-size: 36rpx;
+}
+.quantity-control {
+  display: flex;
+  align-items: center;
+  padding-left: 40rpx;
+}
+.total-price {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+/* 遮罩层样式（灰色蒙层） */
+.mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* 半透明灰色 */
+  z-index: 99; /* 层级低于弹出框 */
+}

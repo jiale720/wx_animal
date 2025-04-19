@@ -1,0 +1,223 @@
+.container {
+  background: #f5f5f5;
+}
+
+/* 顶部图片与优惠区 */
+.top-banner {
+  position: relative;
+  height: 500rpx;
+}
+.top-banner image {
+  width: 100%;
+  height: 100%;
+}
+.banner-text {
+  position: absolute;
+  bottom: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  color: white;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.discount-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  background: #fff5eb;
+}
+.price-info {
+  display: flex;
+  flex-direction: column;
+}
+.discount-price {
+  color: #ff4d4f;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.original-price {
+  color: #999;
+  font-size: 28rpx;
+  text-decoration: line-through;
+}
+.save-money {
+  color: #ff4d4f;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+/* 商品基础信息 */
+.goods-basic {
+  background: white;
+  padding: 20rpx;
+  margin: 20rpx 0;
+}
+.goods-name {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 15rpx;
+}
+.collect-icon {
+  float: right;
+  color: #999;
+}
+.goods-attr {
+  color: #999;
+  font-size: 28rpx;
+  margin-bottom: 15rpx;
+}
+.recommend-tags {
+  display: flex;
+  gap: 10rpx;
+  margin-bottom: 15rpx;
+}
+.tag {
+  background: #fff5eb;
+  color: #ff9900;
+  padding: 8rpx 15rpx;
+  border-radius: 20rpx;
+  font-size: 28rpx;
+}
+.month-sell {
+  color: #666;
+  font-size: 30rpx;
+  margin-bottom: 15rpx;
+}
+.add-cart-btn {
+  background: #ffd700;
+  color: black;
+  padding: 15rpx 30rpx;
+  border-radius: 10rpx;
+  font-size: 32rpx;
+  border: none;
+  float: right;
+}
+.delivery-note {
+  color: #999;
+  font-size: 28rpx;
+  text-align: right;
+}
+
+/* 标签切换区 */
+.tab-bar {
+  display: flex;
+  background: white;
+  margin-bottom: 20rpx;
+}
+.tab-item {
+  padding: 15rpx 30rpx;
+  font-size: 32rpx;
+  color: #666;
+}
+.active {
+  color: #ff9900;
+  border-bottom: 3rpx solid #ff9900;
+}
+.discount-tab {
+  background: #ff4d4f;
+  color: white;
+  padding: 8rpx 15rpx;
+  border-radius: 20rpx;
+  margin-left: 20rpx;
+}
+
+/* 详情内容 */
+.detail-content {
+  background: white;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+}
+.desc-item {
+  display: flex;
+  margin-bottom: 20rpx;
+}
+.desc-label {
+  width: 120rpx;
+  color: #666;
+  font-size: 30rpx;
+}
+.desc-value {
+  flex: 1;
+  color: #333;
+  font-size: 32rpx;
+}
+.price-note {
+  display: flex;
+  align-items: center;
+  color: #666;
+  font-size: 30rpx;
+}
+.note-icon {
+  margin-left: 10rpx;
+  color: #999;
+}
+
+/* 评价区 */
+.evaluation-section {
+  background: white;
+  padding: 20rpx;
+}
+.eval-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.eval-title {
+  font-size: 34rpx;
+  font-weight: bold;
+}
+.eval-rate {
+  color: #999;
+  font-size: 30rpx;
+}
+.eval-more {
+  color: #999;
+  font-size: 30rpx;
+}
+.eval-filters {
+  display: flex;
+  gap: 20rpx;
+  margin-bottom: 20rpx;
+}
+.filter-item {
+  background: #f8f8f8;
+  padding: 10rpx 20rpx;
+  border-radius: 20rpx;
+  color: #666;
+}
+.eval-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+.eval-item {
+  display: flex;
+  gap: 20rpx;
+}
+.user-avatar {
+  width: 80rpx;
+  height: 80rpx;
+}
+.user-avatar image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.user-id {
+  font-size: 30rpx;
+}
+.eval-time {
+  color: #999;
+  font-size: 28rpx;
+}
+.eval-content {
+  flex: 1;
+  color: #333;
+  font-size: 32rpx;
+}
