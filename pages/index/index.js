@@ -18,7 +18,7 @@ Page({
         specification: "10支/盒",
         price: 12,
         type: "PIG",
-        count: 0
+        count: 2
       },
       {
         code: 2,
@@ -271,13 +271,30 @@ Page({
     //阻止冒泡
   },
   onQuantityChange(e) {
-    const totalQuantity = e.detail;
+    const count = e.detail;
     const product = e.currentTarget.dataset.product; // 获取当前商品信息
-    this.addToCart(product);
+    let cartItems = this.data.cartItems;
+    let cartItem = cartItems.find(item => item.code === product.code);
+    let totalPrice = product.price * count;
+    if (cartItem) {
+      cartItem.count = count; // 更新购物车中商品的数量
+      cartItem.totalPrice = totalPrice;
+    } else {
+      cartItem = {
+        code: product.code,
+        name: product.name,
+        specification: product.specification,
+        price: product.price,
+        count: count,
+        img: product.img,
+        totalPrice: totalPrice
+      };
+      cartItems.push(cartItem);
+    }
+    this.calculateTotal();
     this.setData({
-      totalQuantity: totalQuantity,
+      cartItems
     });
-    console.log('当前数量是:', totalQuantity);
   },
   onTypeClick(e) {
     //这个方法控制点击左侧类型标签时，右侧可以跳转到对应的类型
@@ -301,21 +318,11 @@ Page({
     let cartItem = cartItems.find(item => item.code === goods.code);
     if (cartItem) {
       cartItem.count += 1;
-    } else {
-      cartItem = {
-        code: goods.code,
-        name: goods.name,
-        specification: goods.specification,
-        price: goods.price,
-        count: 1,
-        img: goods.img
-      };
-      cartItems.push(cartItem);
+      this.calculateTotal();
+      this.setData({
+        cartItems
+      });
     }
-    this.calculateTotal();
-    this.setData({
-      cartItems
-    });
   },
   // 计算总价和总数量
   calculateTotal() {
@@ -339,26 +346,36 @@ Page({
     let goodsList = this.data.goodsList;
     const itemIndex = cartItems.findIndex(item => item.code === code);
     const goodsIndex = goodsList.findIndex(item => item.code === code);
+    if (goodsIndex > -1) {
+      goodsList[goodsIndex].count = count;
+    }
     if (itemIndex > -1) {
+      const price = cartItems[itemIndex].price;
       cartItems[itemIndex].count = count;
+      cartItems[itemIndex].totalPrice = price * count;
       if (cartItems[itemIndex].count <= 0) {
         cartItems.splice(itemIndex, 1);
       }
     }
-    if (goodsIndex > -1) {
-      goodsList[goodsIndex].count = count;
-    }
-    this.setData({
-      cartItems,
-      goodsList
-    });
     this.calculateTotal();
     if (cartItems.length === 0) {
       this.setData({
         showCartPopup: false
       });
     }
-  
+    this.setData({
+      cartItems: cartItems,
+      goodsList: goodsList
+    });
+    // 在数据更新并渲染完成后，同步更新 number-selector 组件的数量
+    const numberSelector = this.selectComponent(`#number-selector-${code}`);
+    if (numberSelector) {
+      numberSelector.updateQuantity(count);
+    }
+    // const selector = `#number-selector-${code}`;
+    // const numberSelector = this.selectComponent(selector);
+    // console.log('使用的选择器:', selector);
+    // console.log('查找结果:', numberSelector);
 },
 // 清空购物车
 clearCart() {

@@ -64,8 +64,8 @@
                     <view class="dish-sell">规格：{{item.specification}}</view>
                     <view class="parent-view">
                       <view class="left-element">¥{{item.price}}</view>
-                      <number-selector initialQuantity="{{totalQuantity}}" minusIcon="-" plusIcon="＋" catchtap="onParentViewTap" bind:quantityChange="onQuantityChange"
-                      data-product="{{item}}"
+                      <number-selector class = "number" initialQuantity="{{item.count}}" minusIcon="-" plusIcon="＋" catchtap="onParentViewTap" bind:quantityChange="onQuantityChange"
+                      data-product="{{item}}" id="number-selector-{{item.code}}"
                       ></number-selector>
                     </view>
                   </view>
@@ -103,7 +103,10 @@
             <view class="cart-item-name">{{item.name}}</view>
             <view class="cart-item-spec">{{item.specification}}</view>
           </view>
-          <view class="cart-item-price">¥{{item.price}}</view>
+          <view class="cart-item-details">
+            <view class="cart-item-price">单价：¥{{item.price}}</view>
+            <view class="cart-item-price">总价：¥{{item.totalPrice}}</view>
+          </view>
           <view class="quantity-control">
             <number-selector
               initialQuantity="{{item.count}}"

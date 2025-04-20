@@ -3,7 +3,7 @@ Component({
     // 初始数量
     initialQuantity: {
       type: Number,
-      value: 1
+      value: 0
     },
     // 减号图标
     minusIcon: {
@@ -46,6 +46,11 @@ Component({
         });
       }
       this.triggerEvent('quantityChange', this.data.quantity);
+    },
+    updateQuantity(newQuantity) {
+      this.setData({
+        quantity: newQuantity
+      });
     }
   }
 });
