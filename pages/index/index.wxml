@@ -52,7 +52,7 @@
           <view class="dish-list">
             <view wx:for="{{typeList}}" wx:for-item="typeItem" wx:key="value" class="{{typeItem.value}}">
               <view class="type-title type-{{typeItem.value}}">{{typeItem.name}}</view>
-              <view wx:for="{{dishList}}" wx:for-item="item" wx:key="code" bind:tap="goToDetailPage">
+              <view wx:for="{{goodsList}}" wx:for-item="item" wx:key="code" bind:tap="goToDetailPage">
                 <view class="dish-item" wx:if="{{typeItem.value === item.type}}">
                   <view class="dish-img">
                     <image src="{{item.img}}" mode="aspectFill"></image>
@@ -64,7 +64,7 @@
                     <view class="dish-sell">规格：{{item.specification}}</view>
                     <view class="parent-view">
                       <view class="left-element">¥{{item.price}}</view>
-                      <number-selector initialQuantity="{{0}}" minusIcon="-" plusIcon="＋" catchtap="onParentViewTap" bind:quantityChange="onQuantityChange"
+                      <number-selector initialQuantity="{{totalQuantity}}" minusIcon="-" plusIcon="＋" catchtap="onParentViewTap" bind:quantityChange="onQuantityChange"
                       data-product="{{item}}"
                       ></number-selector>
                     </view>
@@ -105,7 +105,13 @@
           </view>
           <view class="cart-item-price">¥{{item.price}}</view>
           <view class="quantity-control">
-            <number-selector initialQuantity="{{item.count}}" minusIcon="-" plusIcon="＋" bind:changeQuantity="changeQuantity"></number-selector>
+            <number-selector
+              initialQuantity="{{item.count}}"
+              minusIcon="-" 
+              plusIcon="＋" 
+              bind:quantityChange="changeCountInCart"
+              data-code="{{item.code}}"
+            ></number-selector>
           </view>
         </view>
       </view>
@@ -114,7 +120,7 @@
       <view class="bottom-left" bind:tap="showCartDetails">
         <image src="../images/cart.png"></image>
         <view>
-          <view class="total-price">¥41.8</view>
+          <view class="total-price">¥{{totalPrice}}</view>
           <view class="delivery-fee">预估另需配送费 ¥3.2</view>
         </view>
       </view>
